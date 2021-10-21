@@ -194,14 +194,14 @@ class hangman(commands.Cog):
     print('hangman is online')
 
   # command to see hangman rules 
-  @commands.command()
-  async def hangman(self,ctx):
-    embed = discord.Embed(
-      title='HANGMAN', 
-      description="Hello there (Woof Woof) !! Lets test your guessing skills and see if you can crack the word (that I choose) in under 6 moves !!\n\n PS: I'm pretty competitive so I wont make it easy! Gear Up. Woof Woof !\n\nRULES:\n\n1. I'll choose a random word.\n2. You have to choose an alphabet or a word.\n If you choose correctly I'll fill it, else you HANG !\n\n! ALL THE BEST ! WOOF WOOF !\n\n"
-    )
-    embed.set_footer(text="To start a new game type .play and press ENTER")
-    await ctx.send(embed=embed)
+  # @commands.command()
+  # async def hangman(self,ctx):
+  #   embed = discord.Embed(
+  #     title='HANGMAN', 
+  #     description="Hello there (Woof Woof) !! Lets test your guessing skills and see if you can crack the word (that I choose) in under 6 moves !!\n\n PS: I'm pretty competitive so I wont make it easy! Gear Up. Woof Woof !\n\nRULES:\n\n1. I'll choose a random word.\n2. You have to choose an alphabet or a word.\n If you choose correctly I'll fill it, else you HANG !\n\n! ALL THE BEST ! WOOF WOOF !\n\n"
+  #   )
+  #   embed.set_footer(text="To start a new game type .play and press ENTER")
+  #   await ctx.send(embed=embed)
 
   #command to play hangman !
   @commands.command()
