@@ -88,10 +88,12 @@ async def exit(ctx):
     client.unload_extension("cog_games.hangman")
     str = 'You have left Hangman ! To play again first load the game using .hangman'
     loaded_hangman = False
-  if loaded_tictactoe : 
+  elif loaded_tictactoe : 
     client.unload_extension("cog_games.tictactoe")
     str = 'You have left Tic-Tac-Toe ! To play again first load the game using .tictactoe'
     loaded_tictactoe = False
+  else:
+    str = "No playing any game currently !"
   embed = discord.Embed(description = str)
   await ctx.send(embed=embed)
 
