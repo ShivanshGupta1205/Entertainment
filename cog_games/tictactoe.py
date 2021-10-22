@@ -5,12 +5,12 @@ from discord.ext import commands
 import random
 
 
-player1 = ""
-player2 = ""
-turn = ""
 gameOver  = True
 count = 0
 board = []
+player1 = ""
+player2 = ""
+turn = ""
 
 winningConditions = [
     [0, 1, 2],
