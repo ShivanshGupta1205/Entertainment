@@ -77,7 +77,7 @@ def display_hangman(tries):
                 # initial empty state
                 """
                    \-\-\-\-\-\-\-
-                   |\t|
+                   |      |
                    |      
                    |    
                    |      
@@ -120,13 +120,6 @@ async def checkMSG(ctx,guess):
           else:
             word_completed += '#'
 
-        # word_as_list = list(word_completed)
-        # indices = [i for i, letter in enumerate(word) if letter == guess]
-
-        # for index in indices:
-        #   word_as_list[index] = guess
-        # word_completed = "".join(word_as_list)
-
         if "#" not in word_completed:
           guessed = True
           await word_guessed(ctx)
@@ -150,8 +143,6 @@ async def checkMSG(ctx,guess):
     else:
       str = "Not a valid guess !"
 
-    
-    # this is causing multiple outputs
     return str
 
 
@@ -212,12 +203,13 @@ class hangman(commands.Cog):
     print(word)
     print(word_completed)
     if not playing:
+      #str = f'Your word is {len(word)} letters long ! Start Guessing !\n\n{display_hangman(tries)}'
       str = f'Your word is {len(word)} letters long ! Start Guessing !\n\n{display_hangman(tries)}'
       embed = discord.Embed(
         title='LETS PLAY HANGMAN', 
         description = str
       )
-      embed.set_footer(text="To start playing type .g [your guess] and press ENTER")
+      embed.set_footer(text="To start playing type .g [your guess] and press ENTER\nTo exit the game type .end")
       await ctx.send(embed=embed)
       playing = True
     else:
@@ -258,6 +250,13 @@ class hangman(commands.Cog):
           reset()     
       else:
         await ctx.send("> Start a New Game first !")
+
+  @g.error
+  async def place_error(self,ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+      embed = discord.Embed(description="Please enter an alphabet or a word you would like to guess.")
+      embed.set_footer(text="To make a guess type .g [your guess] and press ENTER")
+      await ctx.send(embed=embed)
 
 
 

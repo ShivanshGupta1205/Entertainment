@@ -8,11 +8,11 @@ class Music(commands.Cog):
 
   @commands.Cog.listener()
   async def on_ready(self):
-    print("\nThe file music.py has been loaded")
+    print("music in online")
 
   @commands.command()
   async def play_music(self,ctx):
-    await ctx.send("> We will be playing now")
+    await ctx.send("playing music")
 
 
 def setup(client):
