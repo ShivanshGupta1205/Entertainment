@@ -1,3 +1,3 @@
 # Dr. Entertainment
 
-Dr Entertainnment Discord BOT for Innerve Botathon
+Entertainnment Discord BOT for Innerve Botathon
