@@ -92,6 +92,9 @@ class tictactoe(commands.Cog):
     global board
 
     if gameOver:
+      embed = discord.Embed(title="Welocome to Tic-Tac-Toe!", description = "The player who goes first has been mentioned below.")
+      embed.set_footer(text="to mark a place(numbered 1 for first tile and 9 for the last one) type .place [position] and press ENTER\nTo end the current game type .end")
+      await ctx.send(embed=embed)
       board = [
       ":white_large_square:", ":white_large_square:", ":white_large_square:",
       ":white_large_square:", ":white_large_square:", ":white_large_square:",
@@ -157,8 +160,12 @@ class tictactoe(commands.Cog):
   ##command to end the game
   @commands.command()
   async def end(self,ctx):
-    reset()
-    await ctx.send("> Thank You for playing ! Hope to see you again soon ! Woof Woof ")
+    global gameOver
+    if gameOver: 
+      await ctx.send("> You dont have any current game going on ! Start a new game first using .play")
+    else:
+      reset()
+      await ctx.send("> You have ended this game ! Come on let's play a new one")
    
   #if any play error occurs
   @play.error

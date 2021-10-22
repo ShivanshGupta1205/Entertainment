@@ -77,7 +77,7 @@ def display_hangman(tries):
                 # initial empty state
                 f"""
                    \-\-\-\-\-\-\-
-                   |
+                   |            |
                    |      
                    |    
                    |      
@@ -218,8 +218,12 @@ class hangman(commands.Cog):
   #command to end the current game
   @commands.command()
   async def end(self,ctx):
-    reset()
-    await ctx.send("> Thank You for playing ! Hope to see you again soon ! Woof Woof ")
+    global playing
+    if not playing: 
+      await ctx.send("> You dont have any current game going on ! Start a new game first using .play")
+    else: 
+      reset()
+      await ctx.send("> You have ended this game ! Come on let's play a new one")
 
   #command to guess word or letter
   @commands.command()
@@ -242,7 +246,7 @@ class hangman(commands.Cog):
 
         elif not guessed and tries==0:
           embed = discord.Embed(title="HANGMAN" , description = display_hangman(tries))
-          embed.set_footer(text=f"Sorry the game is over ! You have 0 tries left ! The word was {word} ! Play Again ! Let's see if you can win this time ! Woof Woof")
+          embed.set_footer(text=f'Sorry the game is over ! You have 0 tries left ! The word was "{word}" ! Play Again ! Lets see if you can win this time ! Woof Woof\nTo play again type .play')
           await ctx.send(embed = embed)
           reset() 
 

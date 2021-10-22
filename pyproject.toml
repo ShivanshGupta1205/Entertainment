@@ -10,6 +10,7 @@ discord = "^1.7.3"
 pyjokes = "^0.6.0"
 bs4 = "^0.0.1"
 youtube_dl = "^2021.6.6"
+Flask = "^2.0.2"
 
 [tool.poetry.dev-dependencies]
 
