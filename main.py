@@ -93,7 +93,7 @@ async def exit(ctx):
     str = 'You have left Tic-Tac-Toe ! To play again first load the game using .tictactoe'
     loaded_tictactoe = False
   else:
-    str = "No playing any game currently !"
+    str = "Not playing any game currently !"
   embed = discord.Embed(description = str)
   await ctx.send(embed=embed)
 
